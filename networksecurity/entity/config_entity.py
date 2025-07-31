@@ -8,14 +8,39 @@ from networksecurity.constants import training_pipeline
 print(training_pipeline.ARTIFACT_DIR)
 
 
-class TrainingPipelineConig():
+class TrainingPipelineConfig():
     def __init__(self, timestamp = datetime.now()):
-        timestamp = timestamp.strftime("%M-%d-%Y-%H-%M-%S")
-        self.timestamp = timestamp
+        self.timestamp = timestamp.strftime("%M-%d-%Y-%H-%M-%S")
         self.pipeline_name = training_pipeline.PIPELINE_NAME
         self.artifact_name = training_pipeline.ARTIFACT_DIR
-        self.artifact_dir = os.path.join(self.artifact_name, timestamp)
+        self.artifact_dir = os.path.join(self.artifact_name, self.timestamp)
 
 class DataIngestionConfig():
-    def __init__(self, training_pipieline_config):
-        pass
+    def __init__(self, training_pipieline_config: TrainingPipelineConfig):
+        self.data_ingestion_dir = os.path.join(
+            training_pipieline_config.artifact_dir,
+            training_pipeline.DATA_INGESTION_DIR_NAME
+        )
+
+        self.feature_store_dir: str = os.path.join(
+            training_pipieline_config.artifact_dir,
+            training_pipeline.DATA_INGESTION_FEATURE_DIR,
+            training_pipeline.FILE_NAME
+        )
+
+        self.training_dir: str = os.path.join(
+            training_pipieline_config.artifact_dir,
+            training_pipeline.DATA_INGESTION_INGESTED_DIR,
+            training_pipeline.TRAIN_FILE_NAME
+        )
+
+        self.test_dir: str = os.path.join(
+            training_pipieline_config.artifact_dir,
+            training_pipeline.DATA_INGESTION_INGESTED_DIR,
+            training_pipeline.TEST_FILE_NAME
+        )
+
+        self.test_size = training_pipeline.DATA_INGESTION_TEST_SIZE
+        self.random_state = training_pipeline.DATA_INGESTION_RANDOM_STATE
+        self.db_name = training_pipeline.DATA_INGESTION_DB_NAME
+        self.collection_name = training_pipeline.DATA_INGESTION_COLLECTION_NAME
