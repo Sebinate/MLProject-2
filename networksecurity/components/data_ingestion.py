@@ -107,7 +107,7 @@ class DataIngestion():
             self.export_train_test_split(dataframe)
             
             logging.info("Storing Artifact directories")
-            data_ingestion_artifact = artifact_entity.ArtifactConfig(
+            data_ingestion_artifact = artifact_entity.DataIngestionArtifact(
                 train_file_path = self.config.training_dir,
                 test_file_path = self.config.test_dir
             )

@@ -6,4 +6,6 @@ ipykernel
 certifi
 pymongo[srv]==3.11
 pymongo
+scipy
+PyYAML
 # -e .
