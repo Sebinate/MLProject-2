@@ -93,3 +93,27 @@ class DataValidationConfig():
         )
 
         self.schema_file_path = training_pipeline.SCHEMA_FILE_PATH
+
+class DataTransformationConfig():
+    def __init__(self, training_pipeline_config: TrainingPipelineConfig):
+        self.data_transform_dir = os.path.join(
+            training_pipeline_config.artifact_dir,
+            training_pipeline.DATA_TRANSFORM_DIR
+        )
+
+        self.data_transform_train_file_path = os.path.join(
+            self.data_transform_dir,
+            training_pipeline.DATA_TRANSFORMED_DIR,
+            training_pipeline.DATA_TRAIN_TRANSFORM_FILE_NAME
+        )
+
+        self.data_transform_test_file_path = os.path.join(
+            self.data_transform_dir,
+            training_pipeline.DATA_TRANSFORMED_DIR,
+            training_pipeline.DATA_TEST_TRANSFORM_FILE_NAME
+        )
+
+        self.data_transform_object_file_path = os.path.join(
+            self.data_transform_dir,
+            training_pipeline.DATA_PREPROCESSOR_FILE_NAME
+        )

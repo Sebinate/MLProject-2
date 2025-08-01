@@ -26,3 +26,16 @@ DATA_VALIDATION_VALID_DIR = "validated"
 DATA_VALIDATION_INVALID_DIR = "invalid"
 DATA_VALIDATION_DRIFT_REPORT_DIR = "drift_report"
 DATA_VALIDATION_DRIFT_REPORT_FILE_NAME = "report.yml"
+
+DATA_TRANSFORM_DIR = "data_transform"
+DATA_TRANSFORMED_DIR = "transformed"
+DATA_TRAIN_TRANSFORM_FILE_NAME = "train.npy"
+DATA_TEST_TRANSFORM_FILE_NAME = "test.npy"
+DATA_PREPROCESSOR_FILE_NAME = "preprocessor.pkl"
+
+#For KNN imputer
+DATA_TRANSFORM_IMPUTER_PARAMS = {
+    "missing_values": np.nan,
+    "n_neighbors": 3,
+    "weights": "uniform"
+}
