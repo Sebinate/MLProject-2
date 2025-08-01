@@ -19,3 +19,16 @@ class DataTransformationArtifact:
     transformed_train_file_path: str
     transformed_test_file_path: str
     preprocessor_obj_file_path: str
+
+@dataclass
+class ClassificationMetricsArtifact:
+    f1_score: str
+    accuracy: str
+    recall: str
+    precession: str
+
+@dataclass
+class DataTrainingArtifact:
+    model_saved_file_path: str
+    train_metric_artifact: ClassificationMetricsArtifact
+    test_metric_artifact: ClassificationMetricsArtifact

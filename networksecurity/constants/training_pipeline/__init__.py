@@ -39,3 +39,9 @@ DATA_TRANSFORM_IMPUTER_PARAMS = {
     "n_neighbors": 3,
     "weights": "uniform"
 }
+
+MODEL_TRAIN_DIR = "model_training"
+MODEL_TRAINED_DIR = 'trained_model'
+MODEL_TRAINED_FILE_NAME = "model.pkl"
+MODEL_TRAIN_EXPECTED_ACC = 0.60
+MODEL_TRAIN_OVERUNDERFITTING_THRESHOLD = 0.05

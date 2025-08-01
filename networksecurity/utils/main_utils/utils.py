@@ -38,6 +38,20 @@ def save_to_np(file_path, array):
         logging.error("Fatal Error has occured in saving file to numpy array")
         raise Custom_Exception(e, sys)
     
+def load_from_np(file_path):
+    try:
+        if not os.path.exists(file_path):
+            raise Exception(f"File not found at {file_path}")
+        
+        else:
+            logging.info("Trying to load numpy file")
+            with open(file_path, 'rb') as file:
+                return np.load(file)
+            
+    except Exception as e:
+        logging.error("Fatal Error has occured while trying to load numpy file")
+        raise Custom_Exception(e, sys)
+    
 def save_object_as_pkl(file_path, obj):
     try:
         dir_path = os.path.dirname(file_path)
@@ -49,3 +63,17 @@ def save_object_as_pkl(file_path, obj):
     except Exception as e:
         logging.error("Fatal Error has occured in saving file as a pkl")
         raise Custom_Exception(e, sys)
+    
+def load_object_from_pkl(file_path):
+    try:
+        if not os.path.exists(file_path):
+            raise Exception(f'File is not found at {file_path}')
+        else:
+            logging.info("Trying to load pkl file")
+            with open(file_path, 'rb') as file:
+                return pickle.load(file)
+
+    except Exception as e:
+        logging.error("Fatal Error has occured in trying to load pkl file")
+        raise Custom_Exception(e, sys)
+    
