@@ -17,6 +17,8 @@ import pandas as pd
 import numpy as np
 
 import mlflow
+import dagshub
+dagshub.init(repo_owner='Sebinate', repo_name='MLProject-2', mlflow=True)
 
 class ModelTraining:
     def __init__(self,
