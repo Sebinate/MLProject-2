@@ -9,4 +9,5 @@ pymongo
 scipy
 PyYAML
 xgboost
+mlflow
 # -e .

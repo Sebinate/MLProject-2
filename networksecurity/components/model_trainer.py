@@ -16,6 +16,8 @@ import sys
 import pandas as pd
 import numpy as np
 
+import mlflow
+
 class ModelTraining:
     def __init__(self,
                  data_transform_artifact: artifact_entity.DataTransformationArtifact,
@@ -27,6 +29,19 @@ class ModelTraining:
         except Exception as e:
             raise Custom_Exception(e, sys)
         
+    def track_mlflow(self, best_model, classificationmetric):
+        with mlflow.start_run():
+            f1_score = classificationmetric.f1_score
+            accuracy = classificationmetric.accuracy
+            recall = classificationmetric.recall
+            precession = classificationmetric.precession
+
+            mlflow.log_metric("f1_score", f1_score)
+            mlflow.log_metric("accuracy", accuracy)
+            mlflow.log_metric("recall", recall)
+            mlflow.log_metric("precession", precession)
+            mlflow.sklearn.log_model(best_model, 'model')
+
     def train_model(self, X_train, y_train, X_test, y_test):
         models = {
             "Logistic Regression": LogisticRegression(),
@@ -73,12 +88,17 @@ class ModelTraining:
         y_train_pred = best_model.predict(X_train)
 
         logging.info("Calling Evaluation report")
-
         classification_train_metric = get_classification_score(y_train, y_train_pred)
 
         logging.info("Re-predicitng on test split")
         y_test_pred = best_model.predict(X_test)
+
+        self.track_mlflow(best_model, classification_train_metric)
+
+        logging.info("Calling Evaluation report")
         classification_test_metric = get_classification_score(y_test, y_test_pred)
+
+        self.track_mlflow(best_model, classification_test_metric)
 
         logging.info("Loading preprocessor file")
         file = load_object_from_pkl(self.data_transform_artifact.preprocessor_obj_file_path)
