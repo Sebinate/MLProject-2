@@ -9,6 +9,6 @@ pymongo
 scipy
 PyYAML
 xgboost
-mlflow
+mlflow==2.3.2
 dagshub
 # -e .

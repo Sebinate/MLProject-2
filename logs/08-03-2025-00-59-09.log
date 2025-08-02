@@ -1,0 +1,73 @@
+[ 2025-08-03 00:59:19,881 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-08-03 00:59:19,885 ] 107 dagshub - INFO - Accessing as Sebinate
+[ 2025-08-03 00:59:20,377 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/Sebinate/MLProject-2 "HTTP/1.1 200 OK"
+[ 2025-08-03 00:59:20,814 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-08-03 00:59:20,817 ] 107 dagshub - INFO - Initialized MLflow to track repo "Sebinate/MLProject-2"
+[ 2025-08-03 00:59:20,817 ] 107 dagshub - INFO - Repository Sebinate/MLProject-2 initialized!
+[ 2025-08-03 00:59:20,818 ] 23 root - INFO - Data Ingestion Config Successfull
+[ 2025-08-03 00:59:20,818 ] 100 root - INFO - Exporting Collection to CSV
+[ 2025-08-03 00:59:21,129 ] 32 root - INFO - Successfully Connected to MongoDB client
+[ 2025-08-03 00:59:21,129 ] 36 root - INFO - Successfully initialized collection
+[ 2025-08-03 00:59:22,718 ] 39 root - INFO - Successfully Converted to CSV
+[ 2025-08-03 00:59:22,722 ] 103 root - INFO - Exporting to Raw Data
+[ 2025-08-03 00:59:22,722 ] 56 root - INFO - Initializing feature store directory
+[ 2025-08-03 00:59:22,723 ] 59 root - INFO - Feature store directory successfully created
+[ 2025-08-03 00:59:22,764 ] 62 root - INFO - Dataframe exported to CSV in feature_store successfully done
+[ 2025-08-03 00:59:22,764 ] 106 root - INFO - Performing Train-Test split
+[ 2025-08-03 00:59:22,768 ] 77 root - INFO - Train-Test split successfully created
+[ 2025-08-03 00:59:22,768 ] 82 root - INFO - Directory for Train-Test split successfully made
+[ 2025-08-03 00:59:22,806 ] 87 root - INFO - Train dataset has successfully been exported at 42 random state and 0.8 train sample size
+[ 2025-08-03 00:59:22,814 ] 92 root - INFO - Test dataset has successfully been exported at 42 random state and 0.2 test sample size
+[ 2025-08-03 00:59:22,814 ] 109 root - INFO - Storing Artifact directories
+[ 2025-08-03 00:59:22,815 ] 11 root - INFO - Reading schema.yml file
+[ 2025-08-03 00:59:22,820 ] 103 root - INFO - Loading Train and Test data from artifacts
+[ 2025-08-03 00:59:22,863 ] 107 root - INFO - Reading data as pandas dataframe
+[ 2025-08-03 00:59:22,863 ] 39 root - INFO - Required no. of columns 31
+[ 2025-08-03 00:59:22,863 ] 40 root - INFO - No. of columns in dataframe is 31
+[ 2025-08-03 00:59:22,863 ] 39 root - INFO - Required no. of columns 31
+[ 2025-08-03 00:59:22,863 ] 40 root - INFO - No. of columns in dataframe is 31
+[ 2025-08-03 00:59:22,864 ] 55 root - INFO - Required no. of numerical columns 31
+[ 2025-08-03 00:59:22,864 ] 56 root - INFO - No. of columns in dataframe 31
+[ 2025-08-03 00:59:22,864 ] 55 root - INFO - Required no. of numerical columns 31
+[ 2025-08-03 00:59:22,864 ] 56 root - INFO - No. of columns in dataframe 31
+[ 2025-08-03 00:59:22,923 ] 21 root - INFO - Writing yaml file
+[ 2025-08-03 00:59:22,975 ] 29 root - INFO - Reading Data
+[ 2025-08-03 00:59:22,997 ] 29 root - INFO - Reading Data
+[ 2025-08-03 00:59:23,019 ] 56 root - INFO - Successfully Loaded train and test file for data transformation
+[ 2025-08-03 00:59:23,021 ] 65 root - INFO - Successfully created inputs and outputs and changed -1 to 0
+[ 2025-08-03 00:59:23,021 ] 39 root - INFO - Initialized KNN Imputer with parameters {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[ 2025-08-03 00:59:23,021 ] 44 root - INFO - Suuccessfully initialized pipeline
+[ 2025-08-03 00:59:23,025 ] 71 root - INFO - Successfully Transformed X_train and X_test data
+[ 2025-08-03 00:59:23,025 ] 75 root - INFO - Successfully concatinated augmented input and output arrays
+[ 2025-08-03 00:59:23,028 ] 79 root - INFO - Successfully saved np arrays
+[ 2025-08-03 00:59:23,029 ] 82 root - INFO - Successfully saved preprocessor as pkl file
+[ 2025-08-03 00:59:23,031 ] 47 root - INFO - Trying to load numpy file
+[ 2025-08-03 00:59:23,039 ] 47 root - INFO - Trying to load numpy file
+[ 2025-08-03 00:59:23,045 ] 125 root - INFO - Successfully loaded transformed Train and Test data sets
+[ 2025-08-03 00:59:23,045 ] 133 root - INFO - Successfully split train and test data sets to input and target
+[ 2025-08-03 00:59:23,045 ] 78 root - INFO - Initialized models and parameters
+[ 2025-08-03 00:59:23,045 ] 79 root - INFO - Initializing model evaluation and hyper parameter tuning
+[ 2025-08-03 00:59:23,143 ] 47 root - INFO - Successfully intialized and fitted X and Y to the grid search cv
+[ 2025-08-03 00:59:23,168 ] 51 root - INFO - Successfully intialized Logistic Regression with the best params {}
+[ 2025-08-03 00:59:23,188 ] 47 root - INFO - Successfully intialized and fitted X and Y to the grid search cv
+[ 2025-08-03 00:59:23,190 ] 51 root - INFO - Successfully intialized Naive Bayes with the best params {}
+[ 2025-08-03 01:00:05,638 ] 47 root - INFO - Successfully intialized and fitted X and Y to the grid search cv
+[ 2025-08-03 01:00:07,220 ] 51 root - INFO - Successfully intialized Ada Boost with the best params {'learning_rate': 1, 'n_estimators': 400}
+[ 2025-08-03 01:03:48,674 ] 47 root - INFO - Successfully intialized and fitted X and Y to the grid search cv
+[ 2025-08-03 01:03:52,552 ] 51 root - INFO - Successfully intialized Gradient Boost with the best params {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 400}
+[ 2025-08-03 01:04:15,186 ] 47 root - INFO - Successfully intialized and fitted X and Y to the grid search cv
+[ 2025-08-03 01:04:15,533 ] 51 root - INFO - Successfully intialized Random Forest with the best params {'max_leaf_nodes': None, 'n_estimators': 100}
+[ 2025-08-03 01:04:18,011 ] 47 root - INFO - Successfully intialized and fitted X and Y to the grid search cv
+[ 2025-08-03 01:04:18,013 ] 51 root - INFO - Successfully intialized K Nearest Neighbors with the best params {'n_neighbors': 5}
+[ 2025-08-03 01:04:18,363 ] 47 root - INFO - Successfully intialized and fitted X and Y to the grid search cv
+[ 2025-08-03 01:04:18,420 ] 51 root - INFO - Successfully intialized XG Boost with the best params {}
+[ 2025-08-03 01:04:18,427 ] 86 root - INFO - Re-predicting on train split on Gradient Boost with r2 test score of 0.8857440530763974
+[ 2025-08-03 01:04:22,154 ] 92 root - INFO - Calling Evaluation report
+[ 2025-08-03 01:04:22,162 ] 21 root - INFO - Successfully generated classification metric artifact
+[ 2025-08-03 01:04:22,162 ] 95 root - INFO - Re-predicitng on test split
+[ 2025-08-03 01:04:22,172 ] 98 root - INFO - Calling Evaluation report
+[ 2025-08-03 01:04:22,177 ] 21 root - INFO - Successfully generated classification metric artifact
+[ 2025-08-03 01:04:33,098 ] 103 root - INFO - Loading preprocessor file
+[ 2025-08-03 01:04:33,098 ] 72 root - INFO - Trying to load pkl file
+[ 2025-08-03 01:04:33,107 ] 110 root - INFO - Saving model to pickle file
+[ 2025-08-03 01:04:33,114 ] 113 root - INFO - Loading model train artifact
