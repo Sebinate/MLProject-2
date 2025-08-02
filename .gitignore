@@ -1,9 +1,7 @@
 venv/
 .env
-logs/
 .vscode/
 __pycache__/
 **/__pycache__/
 *.py[cod]
 notebooks/
-Artifacts/

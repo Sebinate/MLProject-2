@@ -63,9 +63,9 @@ class ModelTraining:
             "Ada Boost": {"n_estimators": [50, 100, 150, 200, 400],
                           "learning_rate": [5, 1, 0.1, 0.01, 0.001]},
                           
-            "Gradient Boost": {"n_estimators": [50, 100, 150, 200, 400],
-                               "learning_rate": [5, 1, 0.1, 0.01, 0.001],
-                               "max_depth": [1, 3, 5, 7, 10]},
+            "Gradient Boost": {"n_estimators": [50, 100, 200, 400],
+                               "learning_rate": [1, 0.1, 0.001],
+                               "max_depth": [1, 3, 5, 10]},
 
             "Random Forest": {"n_estimators": [50, 100, 150, 200, 400],
                                "max_leaf_nodes": [None, 1, 4, 8, 10]},
@@ -94,8 +94,6 @@ class ModelTraining:
 
         logging.info("Re-predicitng on test split")
         y_test_pred = best_model.predict(X_test)
-
-        self.track_mlflow(best_model, classification_train_metric)
 
         logging.info("Calling Evaluation report")
         classification_test_metric = get_classification_score(y_test, y_test_pred)
