@@ -8,4 +8,5 @@ pymongo[srv]==3.11
 pymongo
 scipy
 PyYAML
+xgboost
 # -e .

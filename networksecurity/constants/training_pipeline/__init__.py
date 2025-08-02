@@ -13,6 +13,8 @@ TRAIN_FILE_NAME = 'train.csv'
 
 SCHEMA_FILE_PATH = os.path.join("dataschema", "schema.yml")
 
+SAVED_MODELS_DIR = "saved_models"
+
 DATA_INGESTION_DB_NAME = "SEBAI"
 DATA_INGESTION_COLLECTION_NAME = "NetworkData"
 DATA_INGESTION_DIR_NAME = "data_ingestion"

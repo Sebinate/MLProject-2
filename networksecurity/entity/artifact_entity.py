@@ -28,7 +28,7 @@ class ClassificationMetricsArtifact:
     precession: str
 
 @dataclass
-class DataTrainingArtifact:
+class ModelTrainingArtifact:
     model_saved_file_path: str
     train_metric_artifact: ClassificationMetricsArtifact
     test_metric_artifact: ClassificationMetricsArtifact

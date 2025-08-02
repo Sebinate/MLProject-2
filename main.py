@@ -1,6 +1,7 @@
 from networksecurity.components.data_ingestion import DataIngestion
 from networksecurity.components.data_validation import DataValidation
 from networksecurity.components.data_transformation import DataTransformation
+from networksecurity.components.model_trainer import ModelTraining
 from networksecurity.logging_utils.logger import logging
 from networksecurity.exception.exception import Custom_Exception
 from networksecurity.entity import config_entity, artifact_entity
@@ -26,5 +27,11 @@ if __name__ == "__main__":
 
         data_transform_artifacts = data_transform.data_tranform_initiate()
         print(data_transform_artifacts)
+
+        model_train_config = config_entity.ModelTrainingConfig(train_pipelien_config)
+        model_train = ModelTraining(data_transform_artifacts, model_train_config)
+
+        model_train_artifacts = model_train.model_train_initiate()
+        print(model_train_artifacts)
     except Exception as e:
         raise Custom_Exception(e, sys)
