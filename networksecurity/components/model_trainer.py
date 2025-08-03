@@ -4,6 +4,7 @@ from networksecurity.entity import config_entity, artifact_entity
 from networksecurity.utils.main_utils.utils import save_object_as_pkl, load_from_np, load_object_from_pkl
 from networksecurity.utils.ml_utils.metrics.classification_metric import get_classification_score
 from networksecurity.utils.ml_utils.model.estimator import NetworkModel, evaluate_model
+from networksecurity.constants.training_pipeline import FINAL_DIR
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
@@ -109,6 +110,10 @@ class ModelTraining:
 
         logging.info("Saving model to pickle file")
         save_object_as_pkl(self.config.model_train_saved, best_model)
+
+        logging.info("Saving Preprocessing file and Model file to final_model dir")
+        save_object_as_pkl(self.config.model_final_path, best_model)
+        save_object_as_pkl(self.config.preprocessing_final_path, file)
 
         logging.info("Loading model train artifact")
         model_trainer_artifact = artifact_entity.ModelTrainingArtifact(model_saved_file_path = self.config.model_train_saved,

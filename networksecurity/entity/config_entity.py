@@ -131,5 +131,15 @@ class ModelTrainingConfig():
             training_pipeline.MODEL_TRAINED_FILE_NAME
         )
 
+        self.model_final_path = os.path.join(
+            training_pipeline.FINAL_DIR,
+            training_pipeline.MODEL_TRAINED_FILE_NAME
+        )
+
+        self.preprocessing_final_path = os.path.join(
+            training_pipeline.FINAL_DIR,
+            training_pipeline.DATA_PREPROCESSOR_FILE_NAME
+        )
+
         self.model_expected_accuracy = training_pipeline.MODEL_TRAIN_EXPECTED_ACC
         self.model_over_under_threshold = training_pipeline.MODEL_TRAIN_OVERUNDERFITTING_THRESHOLD
