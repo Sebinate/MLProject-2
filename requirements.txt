@@ -11,4 +11,7 @@ PyYAML
 xgboost
 mlflow==2.3.2
 dagshub
+fastapi
+uvicorn
+python-multipart
 # -e .
