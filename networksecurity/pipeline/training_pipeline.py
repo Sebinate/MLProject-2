@@ -7,12 +7,16 @@ from networksecurity.entity import config_entity, artifact_entity
 
 from networksecurity.logging_utils.logger import logging
 from networksecurity.exception.exception import Custom_Exception
+
+from networksecurity.cloud.az_syncher import AzureSync
+
 import os
 import sys
 
 class TrainingPipeline():
     def __init__(self):
         self.training_pipeline_config = config_entity.TrainingPipelineConfig()
+        self.az_synch = AzureSync()
 
     def start_data_ingestion(self):
         try:
@@ -85,6 +89,20 @@ class TrainingPipeline():
 
         except Exception as e:
             logging.error("Fatal Error has occured in model training")
+    
+    def sync_artifact_dir_to_az(self):
+        try:
+            self.az_synch.synch_folder_to_az(container = "artifacts", directory = self.training_pipeline_config.artifact_dir, blob_prefix = self.training_pipeline_config.timestamp)
+
+        except Exception as e:
+            raise Custom_Exception(e, sys)
+        
+    def sync_final_model_dir_to_az(self):
+        try:
+            self.az_synch.synch_folder_to_az(container = "model", directory = self.training_pipeline_config.model_dir, blob_prefix = self.training_pipeline_config.timestamp)
+
+        except Exception as e:
+            raise Custom_Exception(e, sys)
 
     def run_pipeline(self):
         try:
@@ -92,6 +110,9 @@ class TrainingPipeline():
             data_validation_artifact = self.start_data_validation(data_ingestion_artifact)
             data_transformation_artifact = self.start_data_transformation(data_validation_artifact)
             model_training_artifact = self.start_model_training(data_transformation_artifact)
+
+            self.sync_artifact_dir_to_az()
+            self.sync_final_model_dir_to_az()
 
             return model_training_artifact
 
