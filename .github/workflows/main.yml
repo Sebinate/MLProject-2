@@ -3,7 +3,7 @@ name: workflow
 on:
   push:
     braches:
-      - main
+      - azurever
     path-ignore:
       - 'README.md'
 
